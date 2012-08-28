@@ -35,11 +35,18 @@ public class Game {
 	}
 	
 	public static void onUpdate(){
+		/*
+		 * Runs the code once to load the buttons. Once loaded, they aren't touched anymore. Because of this we can now
+		 * change the size of the boxes, make them bigger, smaller. what ever
+		 */
 		if(StateMenu.areCreated != true){
 			StateMenu.onInit();
 		}
 		if(StateOptions.areCreated != true){
 			StateOptions.onInit();
+		}
+		if(StateLevelSelect.areCreated != true){
+			StateLevelSelect.onInit();
 		}
 		for(int i = 0; i < 128; i++){
 			if(guiButton.button[i] != null && guiButton.button[i].area == "MAIN_MENU" && state == "MAIN_MENU"){
@@ -69,7 +76,7 @@ public class Game {
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "LEVEL_SELECT" && state == "LEVEL_SELECT"){
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
-				System.out.println("yegf");
+				
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "OPTIONS" && state == "OPTIONS"){
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();

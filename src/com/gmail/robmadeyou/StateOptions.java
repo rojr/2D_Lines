@@ -8,7 +8,7 @@ public class StateOptions {
 		//Here we add new objects to the Main menu state. x, y, height, width, state, normalColour, colourPressed/hover, Texture, moveable, expandable
 		
 		//Back button
-		guiButton.button[5] = new guiButton.Button(0, 0, 60, 100, "OPTIONS", "yellow", "white", "", false, false);
+		guiButton.button[5] = new guiButton.Button(0, 0, 40, 50, "OPTIONS", "yellow", "white", "", false, false);
 		
 		areCreated = true;
 	}
