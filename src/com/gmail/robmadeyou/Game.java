@@ -68,8 +68,15 @@ public class Game {
 		
 		for(int i = 0; i < 128; i++){
 			if(guiButton.button[i] != null && guiButton.button[i].area == "MAIN_MENU" && state == "MAIN_MENU"){
+				/*
+				 * 
+				 * This bit updates the colour of the quads, without applyColour() the quads will not change
+				 * colour if they are told to do so.
+				 * 
+				 */
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
+				//the expand method expands the quad, remember to make a quad taller, it will have to be expanded in negative Y axis
 				guiButton.button[i].expand(0, -100);
 				
 				//Tests for different buttons, if pressed, state changes
@@ -92,6 +99,9 @@ public class Game {
 				if(guiButton.button[4].isPressed()){
 					Display.destroy();
 				}
+			/*
+			 * State update for LEVEL_SELECT state
+			 */
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "LEVEL_SELECT" && state == "LEVEL_SELECT"){
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
@@ -99,6 +109,9 @@ public class Game {
 				if(guiButton.button[5].isPressed()){
 					state = "MAIN_MENU";
 				}
+			/*
+			 * State update for OPTIONS state
+			 */
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "OPTIONS" && state == "OPTIONS"){
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
@@ -106,6 +119,9 @@ public class Game {
 				if(guiButton.button[6].isPressed()){
 					state = "MAIN_MENU";
 				}
+			/*
+			 * State update for CREDITS state
+			 */
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "CREDITS" && state == "CREDITS"){
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
@@ -113,6 +129,9 @@ public class Game {
 				if(guiButton.button[7].isPressed()){
 					state = "MAIN_MENU";
 				}
+			/*
+			 * State update for LEVEL_EDITOR state
+			 */
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "LEVEL_EDITOR" && state == "LEVEL_EDITOR"){
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
@@ -121,20 +140,40 @@ public class Game {
 					state = "MAIN_MENU";
 				}
 			}
-			if(i < 64){
-				if(guiLevels.levels[i] != null){
-					guiLevels.levels[i].applyColour();
-					guiLevels.levels[i].isMouseOver();
+			/*
+			 * 
+			 * This bit updates the Level_select quads, it's quite complicated but don't need to touch it. Don't touch it. I'll bite
+			 * you if you touch it!
+			 * 
+			 */
+			if(state == "LEVEL_SELECT"){
+				if(i < 64){
+					if(guiLevels.levels[i] != null){
+						guiLevels.levels[i].applyColour();
+						guiLevels.levels[i].isMouseOver();
 					
-					if(guiButton.button[9].isPressed()){
-						guiLevels.levels[i].moveForward();
-					}
-					if(guiButton.button[10].isPressed()){
-						guiLevels.levels[i].moveBack();
+						if(guiButton.button[9].isPressed()){
+							for(int r = 0; r < 32; r++){
+								if(guiLevels.levels[r] != null){
+									guiLevels.levels[r].moveForward();
+								}
+							}
+						}
+						if(guiButton.button[10].isPressed()){
+							for(int r = 0; r < 32; r++){
+								if(guiLevels.levels[r] != null){
+									guiLevels.levels[r].moveBack();
+								}
+							}
+						}
+						if(guiLevels.levels[i].isPressed()){
+							if(guiLevels.levels[i + 1] != null && guiLevels.levels[i + 1].unlocked == false){
+								guiLevels.levels[i + 1].unlocked = true;
+							}
+						}
 					}
 				}
 			}
 		}
-		
 	}
 }

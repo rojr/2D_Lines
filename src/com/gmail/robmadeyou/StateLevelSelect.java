@@ -10,9 +10,9 @@ public class StateLevelSelect {
 		guiButton.button[5] = new guiButton.Button(0, 0, 40, 50, "LEVEL_SELECT", "yellow", "white", "", false, false);
 		
 		//Next page button
-		guiButton.button[10] = new guiButton.Button(330, 370, 50, 50, "LEVEL_SELECT", "yellow", "white", "", false, false);
+		guiButton.button[9] = new guiButton.Button(330, 370, 50, 50, "LEVEL_SELECT", "yellow", "white", "", false, false);
 		//Previous page button
-		guiButton.button[9] = new guiButton.Button(260, 370, 50, 50, "LEVEL_SELECT", "yellow", "white", "", false, false);
+		guiButton.button[10] = new guiButton.Button(260, 370, 50, 50, "LEVEL_SELECT", "yellow", "white", "", false, false);
 		
 		
 		/*
@@ -38,6 +38,18 @@ public class StateLevelSelect {
 		guiLevels.levels[11] = new guiLevels.Levels(470, 260, false, 1, "violet", "red", "white", "");
 		
 		guiLevels.levels[12] = new guiLevels.Levels(640 + 50, 40, false, 2, "violet", "red", "white", "");
+		guiLevels.levels[13] = new guiLevels.Levels(640 + 190, 40, false, 2, "violet", "red", "white", "");
+		guiLevels.levels[14] = new guiLevels.Levels(640 + 330, 40, false, 2, "violet", "red", "white", "");
+		guiLevels.levels[15] = new guiLevels.Levels(640 + 470, 40, false, 2, "yellow", "red", "white", "");
+		guiLevels.levels[16] = new guiLevels.Levels(640 + 50, 150, false, 2, "yellow", "red", "white", "");
+		guiLevels.levels[17] = new guiLevels.Levels(640 + 190, 150, false, 2, "yellow", "red", "white", "");
+		guiLevels.levels[18] = new guiLevels.Levels(640 + 330, 150, false, 2, "yellow", "red", "white", "");
+		guiLevels.levels[19] = new guiLevels.Levels(640 + 470, 150, false, 2, "yellow", "red", "white", "");
+		guiLevels.levels[20] = new guiLevels.Levels(640 + 50, 260, false, 2, "cyan", "red", "white", "");
+		guiLevels.levels[21] = new guiLevels.Levels(640 + 190, 260, false, 2, "cyan", "red", "white", "");
+		guiLevels.levels[22] = new guiLevels.Levels(640 + 330, 260, false, 2, "cyan", "red", "white", "");
+		guiLevels.levels[23] = new guiLevels.Levels(640 + 470, 260, false, 2, "cyan", "red", "white", "");
+		
 		
 		areCreated = true;
 	}
