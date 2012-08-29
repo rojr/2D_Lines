@@ -8,6 +8,11 @@ public class GUI {
 				guiButton.button[i].draw();
 			}
 		}
+		if(Game.state == "LEVEL_SELECT" && i < 64){
+			if(guiLevels.levels[i] != null){
+				guiLevels.levels[i].draw();
+			}
+		}
 		
 	}
 }
