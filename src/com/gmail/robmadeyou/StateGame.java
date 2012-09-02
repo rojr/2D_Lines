@@ -1,6 +1,7 @@
 package com.gmail.robmadeyou;
 
 import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 
 public class StateGame {
 	public static boolean areCreated = false;
@@ -9,7 +10,7 @@ public class StateGame {
 	
 	static int pointsOnScreen = 0;
 	static int pointsAvailable = 0;
-	static int pointSize = 40;
+	static float pointSize = 10f;
 	
 	static String pointColour = "white";
 	
@@ -34,8 +35,7 @@ public class StateGame {
 				if(Mouse.getEventButtonState()){
 					if(pointsAvailable != 0){
 						System.out.println("Yo, I'm clicked " + pointsOnScreen);
-						
-						Player.dots[pointsOnScreen] = new Player.Dots(Mouse.getX(), Mouse.getY(), pointSize, pointColour);
+						Player.dots[pointsOnScreen] = new Player.Dots(Mouse.getX(), Display.getHeight() - Mouse.getY(), pointSize, pointColour);
 						pointsOnScreen += 1;
 						pointsAvailable -= 1;
 					}

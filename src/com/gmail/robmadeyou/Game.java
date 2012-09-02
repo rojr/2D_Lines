@@ -1,6 +1,5 @@
 package com.gmail.robmadeyou;
 
-import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 
 public class Game {
@@ -117,7 +116,9 @@ public class Game {
 					StateGame.lives --;
 					StateGame.Lives();
 				}
-				
+				if(StateGame.pointsOnScreen != 0 && StateGame.pointsOnScreen != 1){
+					
+				}
 				
 				StateGame.level();
 			/*

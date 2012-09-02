@@ -20,6 +20,9 @@ public class GUI {
 				}
 				if(Player.dots[r] != null){
 					Player.dots[r].draw();
+					if(Player.dots[r] != null && Player.dots[r + 1] != null){
+						Player.lines[r] = new Player.Lines(Player.dots[r].x, Player.dots[r].y, Player.dots[r + 1].x, Player.dots[r + 1].y, StateGame.pointColour);
+					}
 				}
 			}
 		}

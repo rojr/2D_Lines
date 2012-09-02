@@ -3,9 +3,10 @@ package com.gmail.robmadeyou;
 import static org.lwjgl.opengl.GL11.glBegin;
 import static org.lwjgl.opengl.GL11.glEnd;
 import static org.lwjgl.opengl.GL11.glVertex2f;
+import static org.lwjgl.opengl.GL11.glVertex2i;
 
 
-import static org.lwjgl.opengl.GL11.GL_POINT;
+import static org.lwjgl.opengl.GL11.GL_POINTS;
 import static org.lwjgl.opengl.GL11.GL_LINES;
 import static org.lwjgl.opengl.GL11.glPointSize;
 import static org.lwjgl.opengl.GL11.glColor3f;
@@ -50,13 +51,13 @@ public class Player {
 		int x;
 		int y;
 		
-		int size;
+		float size;
 		String colour;
 		
 		float red;
 		float green;
 		float blue;
-		Dots(int x, int y, int size, String colour){
+		Dots(int x, int y, float size, String colour){
 			this.x = x;
 			this.y = y;
 			
@@ -66,11 +67,10 @@ public class Player {
 		}
 		
 		void draw(){
-			
-			glBegin(GL_POINT);
-				glPointSize(size);
-				glColor3f(red , green , blue);
-				glVertex2f(x , y);
+			glPointSize(size);
+			glBegin(GL_POINTS);
+				glColor3f(1, 1, 1);
+				glVertex2i(x , y);
 			glEnd();
 		}
 	}
