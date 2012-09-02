@@ -14,7 +14,7 @@ import static org.lwjgl.opengl.GL11.glColor3f;
 public class Player {
 	
 	
-	static Lines lines[] = new Lines[128];
+	static Lines lines[] = new Lines[255];
 	
 	static class Lines{
 		int x;

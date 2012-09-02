@@ -43,17 +43,34 @@ public class StateGame {
 			}
 		}
 		
+		
 		if(level == 0){
 			if(levelLoaded == false){
 				pointsOnScreen = 0;
-				pointsAvailable = 10;
+				pointsAvailable = 128;
 				levelLoaded = true;
 			}
 			
 			if(levelComplete){
 				levelLoaded = false;
+				resetScreen();
+				Game.state = "LEVEL_SELECT";
+			}
+			if(Mouse.isButtonDown(1)){
+				resetScreen();
 			}
 		}
+	}
+	
+	
+	static void resetScreen(){
+		for(int i = 0; i < pointsOnScreen; i++){
+			Player.dots[i] = null;
+			Player.lines[i] = null;
+			
+		}
+		pointsOnScreen = 0;
+		levelLoaded = false;
 	}
 	
 	

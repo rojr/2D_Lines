@@ -14,8 +14,8 @@ public class GUI {
 			}
 		}
 		if(Game.state == "GAME"){
-			for(int r = 0; r < 256; r++){
-				if( r < 128 && Player.lines[r]!= null){
+			for(int r = 0; r < 128; r++){
+				if( r < 127 && Player.lines[r]!= null){
 					Player.lines[r].draw();
 				}
 				if(Player.dots[r] != null){

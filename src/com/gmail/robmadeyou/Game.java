@@ -116,9 +116,6 @@ public class Game {
 					StateGame.lives --;
 					StateGame.Lives();
 				}
-				if(StateGame.pointsOnScreen != 0 && StateGame.pointsOnScreen != 1){
-					
-				}
 				
 				StateGame.level();
 			/*
