@@ -33,7 +33,7 @@ public class Main {
 		while(!Display.isCloseRequested()){
 
 			glClear(GL_COLOR_BUFFER_BIT);
-			
+			Player.lines[0] = new Player.Lines(20, 29, 400, 214, "");
 			onUpdate();
 			updateFPS();
 			

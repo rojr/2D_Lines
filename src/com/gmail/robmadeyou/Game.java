@@ -22,6 +22,10 @@ public class Game {
 			for(int i = 0; i < 128; i++){
 				GUI.Draw(i, state);
 			}
+		}else if(state == "GAME"){
+			for(int i = 0; i < 128; i++){
+				GUI.Draw(i, state);
+			}
 		}else if(state == "LEVEL_SELECT"){
 			for(int i = 0; i < 128; i++){
 				GUI.Draw(i, state);
@@ -52,6 +56,9 @@ public class Game {
 		 */
 		if(StateMenu.areCreated != true){
 			StateMenu.onInit();
+		}
+		if(StateGame.areCreated != true){
+			StateGame.onInit();
 		}
 		if(StateLevelSelect.areCreated != true){
 			StateLevelSelect.onInit();
@@ -100,9 +107,24 @@ public class Game {
 					Display.destroy();
 				}
 			/*
-			 * State update for LEVEL_SELECT state
+			 * State update for GAME state
 			 */
+			}else if(guiButton.button[i] != null && guiButton.button[i].area == "GAME" && state == "GAME"){
+				guiButton.button[i].applyColour();
+				guiButton.button[i].isMouseOver();
+				
+				if(guiButton.button[11].isPressed()){
+					StateGame.lives --;
+					StateGame.Lives();
+				}
+				
+				
+				StateGame.level();
+			/*
+			 * State update for LEVEL_SELECT state
+			*/
 			}else if(guiButton.button[i] != null && guiButton.button[i].area == "LEVEL_SELECT" && state == "LEVEL_SELECT"){
+			
 				guiButton.button[i].applyColour();
 				guiButton.button[i].isMouseOver();
 				
@@ -168,7 +190,10 @@ public class Game {
 						}
 						if(guiLevels.levels[i].isPressed()){
 							if(guiLevels.levels[i + 1] != null && guiLevels.levels[i + 1].unlocked == false){
-								guiLevels.levels[i + 1].unlocked = true;
+								StateGame.level = i;
+								System.out.println(StateGame.level);
+								state = "GAME";
+								
 							}
 						}
 					}
