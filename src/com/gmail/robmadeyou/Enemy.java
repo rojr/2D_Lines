@@ -1,30 +1,41 @@
 package com.gmail.robmadeyou;
 
-import org.newdawn.slick.opengl.Texture;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
 import static org.lwjgl.opengl.GL11.glBegin;
 import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glVertex2i;
 import static org.lwjgl.opengl.GL11.glTexCoord2f;
+import static org.lwjgl.opengl.GL11.glVertex2i;
+import static org.lwjgl.opengl.GL11.glColor3f;
 
-import static org.lwjgl.opengl.GL11.GL_QUADS;
+import java.util.Random;
 
+import org.newdawn.slick.opengl.Texture;
 
-public class GuiButton implements GUI {
+public class Enemy implements GUI {
 
-	private int x, y, w, h;
-	private Texture tex;
-	public GuiButton(int x, int y, int w, int h, Texture tex){
+	
+	
+	protected int x,y,w,h;
+	protected int toughness;
+	protected Texture tex;
+	protected float r,g,b;
+	protected String bonus;
+	protected boolean isOnScreen;
+	public Enemy(int x, int y, int w, int h, String bonus, int toughness){
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
-		this.tex = tex;
+		this.bonus = bonus;
+		this.toughness = toughness;
+		Random ranColour = new Random();
+		this.r = ranColour.nextFloat();
+		this.g = ranColour.nextFloat();
+		this.b = ranColour.nextFloat();
 	}
-	
 	@Override
 	public void setLocation(int x, int y) {
-		this.x = x;
-		this.y = y;
+		
 	}
 
 	@Override
@@ -67,15 +78,12 @@ public class GuiButton implements GUI {
 		return h;
 	}
 	
-	public void onUpdate(){
-		
-	}
-	
 	public void draw(){
 		if(tex != null){
 			tex.bind();
 		}
 		glBegin(GL_QUADS);
+			glColor3f(r,g,b);
 			glTexCoord2f(0,0);
 			glVertex2i(x, y);
 			glTexCoord2f(1,0);
